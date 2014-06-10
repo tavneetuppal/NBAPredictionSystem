@@ -451,9 +451,14 @@ double offRating;
 		}
 	}
 
-	private double valueMod(double d, double modFactor) {double modded =d;
+	private double valueMod(double d, double modFactor){double modded =d;
+		double modProduct = 0;
 		if (modFactor!=0){
-		modded = d + (d * (0.5-modFactor));
+		modProduct = d + (d * (1-modFactor));
+		if(modFactor>0.5){
+			modProduct = modProduct * -1;
+		}
+		modded = d + modProduct;
 		}return modded;
 	}
 
